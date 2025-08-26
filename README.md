@@ -105,12 +105,22 @@ cd /home/sagemaker-user/user-default-efs/project-X
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Create venv
+uv init
 uv venv
 ```
 
 ------------------------------------------------------------------------
 
 ### 2. Installing Dependencies
+Append this to end of the pyproject.toml to get the authentication script working 
+``` bash
+[tool.uv.sources]
+imu-snowflake-main = { index = "aws" }
+
+[[tool.uv.index]]
+url = "https://imu-257033705919.d.codeartifact.eu-west-1.amazonaws.com/pypi/imu/simple/"
+name = "aws"
+```
 
 ``` bash
 # Authenticate with AWS CodeArtifact
@@ -124,7 +134,6 @@ uv add imu-snowflake-main
 # Install from pyproject.toml
 uv sync
 ```
-
 ------------------------------------------------------------------------
 
 ### 3. Register Venv as Jupyter Kernel
