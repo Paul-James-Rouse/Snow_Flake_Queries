@@ -1,0 +1,2 @@
+export UV_INDEX_AWS_USERNAME=aws
+export UV_INDEX_AWS_PASSWORD=$(aws codeartifact get-authorization-token --domain imu --domain-owner 257033705919 --region eu-west-1 --query authorizationToken --output text)
