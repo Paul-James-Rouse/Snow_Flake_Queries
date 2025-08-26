@@ -196,7 +196,8 @@ python script.py
 ``` python
 from imu.snowflake import SnowflakeClient
 
-client = SnowflakeClient()
+client = SnowflakeClient()  # if config in ‘/home/sagemaker-user/.local’
+
 
 samples_table = client.table('V_FCS_TRACKED_SAMPLES', database='IMU.IMU')
 samples_table  # inspect schema
@@ -260,13 +261,14 @@ natural_manual_metadata = samples_table.join(
 
 ------------------------------------------------------------------------
 
-### 4. Reading CSVs from S3
+### 4. Reading files from S3
+**CVs**
 
 ``` bash
 source codeartifact-auth.sh
 uv add fsspec s3fs
 ```
-
+**parquet**
 ``` python
 import pandas as pd
 import pyarrow.parquet as pq
