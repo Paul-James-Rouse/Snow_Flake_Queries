@@ -105,6 +105,7 @@ cd /home/sagemaker-user/user-default-efs/project-X
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
 # Create venv
+uv init
 uv venv
 ```
 
